@@ -4,6 +4,7 @@ require('es6-promise');
 require('whatwg-fetch');
 
 var NAME = 'segmentio-commonjs-client';
+var VERSION = require('./package.json').version;
 var API_BASE_URL = 'https://api.segment.io/v1';
 
 var Client = function(key) {
@@ -19,6 +20,23 @@ function headers(key) {
   };
 }
 
+function context() {
+  return {
+    library: {
+      name: 'segmentio-commonjs-client',
+      version: VERSION
+    },
+    page: {
+      path: document.location.pathname,
+      referrer: document.referrer,
+      search: document.location.search,
+      title: document.title,
+      url: document.location.href
+    },
+    userAgent: window.navigator.userAgent
+  };
+}
+
 Client.prototype.setLoggingOnly = function() {
   this.loggingOnly = true;
 };
@@ -29,6 +47,7 @@ Client.prototype.identify = function(body) {
     method: 'POST',
     headers: headers(this.key),
     body: JSON.stringify({
+      context: context(),
       type: 'identify',
       anonymousId: '' + body.anonymousId,
       userId: '' + body.userId,
@@ -56,6 +75,7 @@ Client.prototype.track = function(body) {
       method: 'POST',
       headers: headers(this.key),
       body: JSON.stringify({
+        context: context(),
         type: 'track',
         userId: '' + body.userId,
         event: body.event,
