@@ -3,7 +3,7 @@
 A npm-based client for SegmentIO that is expected to be used client-side via CommonJS. For server-side, look to [analytics-node](https://github.com/segmentio/analytics-node) which supports buffering. This project exists because while analytics-node can be used client-side, doing so has some downsides:
 
 * results in big payload because need NodeJS buffer implementation for browsers
-* leaks lodash to `window._` (currently, reported as an issue so might change)
+* leaks lodash to `window._` (reported [as an issue](https://github.com/segmentio/analytics-node/issues/48) so may change)
 
 ## status
 
