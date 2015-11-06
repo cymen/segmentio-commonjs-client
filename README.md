@@ -17,11 +17,24 @@ var client = new Analytics('my_segment_write_key');
 ```
 
 
-## track
-SegmentIO [track](https://segment.com/docs/spec/track/) event.
+## identify
+SegmentIO [identify](https://segment.com/docs/spec/identify/) event:
 
 ```javascript
+client.identify({
+  userId: 'abc123',
+  traits: {
+    email: 'bob@example.com',
+    age: 42
+  }
+});
+```
 
+
+## track
+SegmentIO [track](https://segment.com/docs/spec/track/) event:
+
+```javascript
 client.track({
   userId: 'abc123',
   event: 'MyEvent',

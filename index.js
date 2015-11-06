@@ -11,8 +11,38 @@ var Client = function(key) {
   this.loggingOnly = false;
 }
 
+function headers(key) {
+  return {
+    'Accept': 'application/json',
+    'Authorization': 'Basic ' + key,
+    'Content-Type': 'application/json'
+  };
+}
+
 Client.prototype.setLoggingOnly = function() {
   this.loggingOnly = true;
+};
+
+Client.prototype.identify = function(body) {
+  var url = API_BASE_URL + '/identify';
+  var requestBody = {
+    method: 'POST',
+    headers: headers(this.key),
+    body: JSON.stringify({
+      type: 'identify',
+      anonymousId: '' + body.anonymousId,
+      userId: '' + body.userId,
+      traits: body.traits || {}
+    })
+  };
+
+  if (!this.loggingOnly) {
+    fetch(url, requestBody);
+  } else {
+    if (console && console.log) {
+      console.log('[' + NAME + ': logging-only mode]', requestBody);
+    }
+  }
 };
 
 Client.prototype.track = function(body) {
@@ -24,11 +54,7 @@ Client.prototype.track = function(body) {
     var url = API_BASE_URL + '/track';
     var requestBody = {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Basic ' + this.key,
-        'Content-Type': 'application/json'
-      },
+      headers: headers(this.key),
       body: JSON.stringify({
         type: 'track',
         userId: '' + body.userId,
