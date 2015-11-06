@@ -5,11 +5,11 @@ A npm-based client for SegmentIO that is expected to be used client-side via Com
 * results in big payload because need NodeJS buffer implementation for browsers
 * leaks lodash to `window._` (reported [as an issue](https://github.com/segmentio/analytics-node/issues/48) so may change)
 
-## status
+## Status
 
 Early stage currently with only support for the [track](https://segment.com/docs/spec/track/) event. It is straight forward to implement the rest but doing so as needed (PRs welcomed).
 
 
-## LICENSE
+## License
 
 MIT
