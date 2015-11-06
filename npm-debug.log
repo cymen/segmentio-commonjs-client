@@ -1,0 +1,91 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.12.1
+3 info using node@v0.12.7
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec { raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/cymen/dev/segmentio-commonjs-client',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/cymen/.npm/segmentio-commonjs-client/0.0.2/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/cymen/.npm/segmentio-commonjs-client/0.0.2/package.tgz',
+10 verbose tar pack   '/Users/cymen/dev/segmentio-commonjs-client' ]
+11 verbose tarball /Users/cymen/.npm/segmentio-commonjs-client/0.0.2/package.tgz
+12 verbose folder /Users/cymen/dev/segmentio-commonjs-client
+13 info prepublish segmentio-commonjs-client@0.0.2
+14 verbose addLocalTarball adding from inside cache /Users/cymen/.npm/segmentio-commonjs-client/0.0.2/package.tgz
+15 silly cache afterAdd segmentio-commonjs-client@0.0.2
+16 verbose afterAdd /Users/cymen/.npm/segmentio-commonjs-client/0.0.2/package/package.json not in flight; writing
+17 verbose afterAdd /Users/cymen/.npm/segmentio-commonjs-client/0.0.2/package/package.json written
+18 silly publish { name: 'segmentio-commonjs-client',
+18 silly publish   version: '0.0.2',
+18 silly publish   description: 'A client for SegmentIO using CommmonJS',
+18 silly publish   main: 'index.js',
+18 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+18 silly publish   author: { name: 'Cymen Vig', email: 'cymenvig@gmail.com' },
+18 silly publish   license: 'MIT',
+18 silly publish   dependencies:
+18 silly publish    { Base64: '^0.3.0',
+18 silly publish      'es6-promise': '^3.0.2',
+18 silly publish      'whatwg-fetch': '^0.10.1' },
+18 silly publish   readme: '# segmentio-commonjs-client\n\nA npm-based client for SegmentIO that is expected to be used client-side via CommonJS. For server-side, look to [analytics-node](https://github.com/segmentio/analytics-node) which supports buffering. This project exists because while analytics-node can be used client-side, doing so has some downsides:\n\n* results in big payload because need NodeJS buffer implementation for browsers\n* leaks lodash to `window._` (reported [as an issue](https://github.com/segmentio/analytics-node/issues/48) so may change)\n\n\n## Basic overview\n\nTo create an instance of the client pass the SegmentIO write key:\n\n```javascript\nvar Analytics = require(\'segmentio-commonjs-client\');\n\nvar client = new Analytics(\'my_segment_write_key\');\n```\n\n\n## track\nSegmentIO [track](https://segment.com/docs/spec/track/) event.\n\n```javascript\n\nclient.track({\n  userId: \'abc123\',\n  event: \'MyEvent\',\n  properties: {\n    arbitraryKey: \'someValue\'\n  }\n});\n```\n\n\n## setLoggingOnly\n\nThe client has a `setLoggingOnly()` function that can be called to disable actually interacting with the SegmentIO API -- instead the calls are logged to the console. This is useful when in non-production model.\n\n\n## status\n\nEarly stage currently with only support for the [track](https://segment.com/docs/spec/track/) event. It is straight forward to implement the rest but doing so as needed (PRs welcomed).\n\n\n## License\n\nMIT\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '1506ac17a6fe0ec92af50d8f5e84cc973ab77d62',
+18 silly publish   _id: 'segmentio-commonjs-client@0.0.2',
+18 silly publish   _shasum: '1a25ce9b60b8338ee5e038e5a092865727901afc',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name segmentio-commonjs-client
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/segmentio-commonjs-client
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/cymen/.npm/segmentio-commonjs-client/0.0.2/package.tgz
+26 verbose request uri https://registry.npmjs.org/segmentio-commonjs-client
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 13:01:28
+29 verbose request using bearer token for auth
+30 verbose request id 4a39b81a3adfcc52
+31 http request PUT https://registry.npmjs.org/segmentio-commonjs-client
+32 http 403 https://registry.npmjs.org/segmentio-commonjs-client
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=60',
+33 verbose headers   'content-length': '95',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Fri, 06 Nov 2015 21:01:29 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-lax1433-LAX',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1446843689.418439,VS0,VE104' }
+34 verbose request invalidating /Users/cymen/.npm/registry.npmjs.org/segmentio-commonjs-client on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 0.0.2." : segmentio-commonjs-client
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:197:22)
+36 verbose stack     at Request.emit (events.js:110:17)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1050:14)
+36 verbose stack     at Request.emit (events.js:129:20)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:996:12)
+36 verbose stack     at IncomingMessage.emit (events.js:129:20)
+36 verbose stack     at _stream_readable.js:908:16
+36 verbose stack     at process._tickCallback (node.js:355:11)
+37 verbose statusCode 403
+38 verbose pkgid segmentio-commonjs-client
+39 verbose cwd /Users/cymen/dev/segmentio-commonjs-client
+40 error Darwin 15.0.0
+41 error argv "node" "/usr/local/bin/npm" "publish"
+42 error node v0.12.7
+43 error npm  v2.12.1
+44 error code E403
+45 error "You cannot publish over the previously published version 0.0.2." : segmentio-commonjs-client
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
