@@ -1,13 +1,20 @@
 {
   "name": "segmentio-commonjs-client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A client for SegmentIO using CommmonJS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cymen Vig <cymenvig@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cymen/segmentio-commonjs-client"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cymen/segmentio-commonjs-client/issues"
+  },
   "dependencies": {
     "Base64": "^0.3.0",
     "es6-promise": "^3.0.2",
