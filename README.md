@@ -52,7 +52,7 @@ The client has a `setLoggingOnly()` function that can be called to disable actua
 
 ## status
 
-Early stage currently with only support for the [track](https://segment.com/docs/spec/track/) event. It is straight forward to implement the rest but doing so as needed (PRs welcomed).
+Early stage but working and in production use. PRs and issues welcomed!
 
 
 ## License
