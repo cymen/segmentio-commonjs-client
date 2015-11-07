@@ -1,7 +1,10 @@
 // polyfills
-require('Base64');
 require('es6-promise');
 require('whatwg-fetch');
+var base64 = require('Base64');
+if (!window.btoa) {
+  window.btoa = base64.btoa;
+}
 
 var NAME = 'segmentio-commonjs-client';
 var VERSION = require('./package.json').version;
